@@ -1,0 +1,23 @@
+= Utilisation
+
+== Cas d'usage principaux
+
+[source,crystal]
+----
+require "session-log"
+
+# Exemple : à remplir lors de l'écriture du shard.
+----
+
+== En CLI (si applicable)
+
+[source,shell]
+----
+session-log --help
+session-log help
+session-log help <sous-commande>
+----
+
+Convention UX ALOLI : tout CLI accepte `<cmd> help [<sub>]` en
+positionnel (équivalent à `--help`/`-h`, focus sur une
+sous-commande quand un argument est fourni).

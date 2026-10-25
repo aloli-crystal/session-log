@@ -1,0 +1,22 @@
+= Session log
+:description: Journal de session pour les CLI Crystal : relance le programme sous script(1) (ou une recopie) pour enregistrer dans un fichier tout ce qui s'affiche dans le terminal.
+
+Journal de session pour les CLI Crystal : relance le programme sous script(1) (ou une recopie) pour enregistrer dans un fichier tout ce qui s'affiche dans le terminal.
+
+== Statut
+
+* *Version* : {page-component-display-version}
+* *Repo* : https://github.com/aloli-crystal/session-log[aloli-crystal/session-log]
+* *Licence* : MIT
+
+== Quickstart
+
+[source,crystal]
+----
+require "session-log"
+
+# … exemple d'utilisation …
+----
+
+Pour les détails, voir xref:usage.adoc[Utilisation] ou
+xref:api.adoc[API].

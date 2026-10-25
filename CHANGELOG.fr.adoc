@@ -1,0 +1,23 @@
+= Changelog
+:toc: left
+:toc-title: Versions
+
+Toutes les modifications notables de `aloli-crystal/session-log`
+sont documentées ici. Le format suit
+https://keepachangelog.com/1.1.0/[Keep a Changelog] et le
+versioning suit https://semver.org/[SemVer]
+(3 chiffres pour création, 4 pour portage de gem Ruby).
+
+== v0.1.0 — 2026-10-25
+
+=== Ajouté
+
+* Création du shard à partir du template
+  https://github.com/aloli-crystal/shard-template[aloli-crystal/shard-template].
+* Module `SessionLog` avec `VERSION` lue au compile-time depuis
+  `shard.yml`.
+* Journal de session extrait de `beryl` et rendu générique :
+  `Config` (application, version, dossier, variable d'environnement,
+  durée de conservation), `strip_flag`, `path`, `script_args`, `run`
+  (sous `script(1)` en terminal, recopie écran + fichier sinon),
+  `prune`.

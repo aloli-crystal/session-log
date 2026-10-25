@@ -1,0 +1,65 @@
+= aloli-crystal/session-log
+:toc: left
+:toc-title: Sommaire
+
+Journal de session pour les CLI Crystal : relance le programme sous script(1) (ou une recopie) pour enregistrer dans un fichier tout ce qui s'affiche dans le terminal.
+
+== Installation
+
+[source,yaml]
+----
+dependencies:
+  session-log:
+    github: aloli-crystal/session-log
+    version: "~> 0.1"
+----
+
+== Démarrage rapide
+
+[source,crystal]
+----
+require "session-log"
+
+config = SessionLog::Config.new("monoutil", MonOutil::VERSION,
+  File.join(ENV["HOME"], ".local/state/monoutil/logs"))
+argv, refuse = SessionLog.strip_flag(ARGV) # --no-log, n'importe où
+
+# À l'application de choisir quoi journaliser : jamais l'aide, ni les
+# commandes qui affichent ou font saisir des secrets.
+if !refuse && !config.active? && (cmd = argv.first?) && !{"help", "secret"}.includes?(cmd)
+  exit SessionLog.run(config, argv, config.path(cmd, argv[1]?))
+end
+exit MonOutil.run(argv)
+----
+
+== Statut
+
+* *Version* : voir https://github.com/aloli-crystal/session-log/releases[releases GitHub]
+* *Branche par défaut* : `production`
+* *Licence* : MIT (voir `LICENSE`)
+
+== Documentation
+
+* https://aloli-crystal.github.io/session-log/[Site documentaire Antora] (à venir)
+* `CHANGELOG.fr.adoc` — historique des versions
+* `CHANGELOG.adoc` — version anglaise
+
+== Conventions ALOLI
+
+Ce shard suit les conventions de l'écosystème
+https://github.com/aloli-crystal[aloli-crystal/*] :
+
+* Constante `VERSION` lue au compile-time depuis `shard.yml` —
+  pas de désynchro possible.
+* CLI : `session-log help [<sub>]` (équivalent UX standard de
+  `--help` + focus par sous-commande).
+* Branche par défaut `production` (pas `main`).
+* Versioning SemVer 3-chiffres pour création, 4-chiffres pour
+  portage de gem Ruby.
+
+Pour démarrer un nouveau shard avec ces conventions :
+https://github.com/aloli-crystal/shard-template[aloli-crystal/shard-template].
+
+== Licence
+
+MIT — voir `LICENSE`.
