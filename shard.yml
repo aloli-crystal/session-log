@@ -1,5 +1,5 @@
 name: session-log
-version: 0.1.0
+version: 0.1.1
 
 description: |
   Session log for Crystal CLIs: re-runs the program under script(1) (or a tee) so that everything shown in the terminal is recorded in a file.

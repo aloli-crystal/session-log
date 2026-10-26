@@ -121,8 +121,8 @@ module SessionLog
   # Efface les journaux de plus de `keep_days` jours. Jamais bloquant.
   def prune(dir : String, keep_days : Int32) : Nil
     limit = Time.utc - keep_days.days
-    Dir.glob(File.join(dir, "*.log")).each do |f|
-      File.delete(f) if File.info(f).modification_time < limit
+    Dir.glob(File.join(dir, "*.log")).each do |file|
+      File.delete(file) if File.info(file).modification_time < limit
     end
   rescue
   end
